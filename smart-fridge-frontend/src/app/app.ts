@@ -1,5 +1,5 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component} from '@angular/core';
+import {RouterOutlet} from '@angular/router';
 import {Header} from './component/header/header';
 
 @Component({
@@ -9,5 +9,4 @@ import {Header} from './component/header/header';
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('smart-fridge-frontend');
 }
