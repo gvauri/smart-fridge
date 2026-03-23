@@ -2,7 +2,7 @@
   "items": [
     {
       "id": 1,
-      "icon": "carrot",
+      "icon": "logo.png",
       "name": "Karrotte",
       "description": "die Karrotten sind vom Hof neben an",
       "buying_date": "2000-02-20",

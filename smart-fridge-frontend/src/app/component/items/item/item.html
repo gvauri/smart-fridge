@@ -1,1 +1,8 @@
-<p>item works!</p>
+<img [ngSrc]="item().icon" [alt]="item().icon" class="img" width="500" height="500" priority>
+<div class="description-container">
+  <h2>{{item().name}}</h2>
+  <p>Ablaufdatum: {{formatDate(item().expiration_date)}}</p>
+  <p>Kaufsdatum: {{formatDate(item().buying_date)}}</p>
+  <p>Anzahl: {{item().amount}}</p>
+  <p>{{item().description}}</p>
+</div>
