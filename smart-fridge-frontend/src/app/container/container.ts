@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import {MatFabButton} from '@angular/material/button';
-import {Items} from '../component/items/items';
+import {ItemsComponent} from '../component/items/items.component';
 
 @Component({
   selector: 'app-container',
   imports: [
     MatFabButton,
-    Items
+    ItemsComponent
   ],
   templateUrl: './container.html',
   styleUrl: './container.scss',

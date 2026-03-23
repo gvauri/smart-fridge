@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, input} from '@angular/core';
+import {Item} from '../../../models/item.model';
 
 @Component({
   selector: 'app-item',
@@ -6,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './item.html',
   styleUrl: './item.scss',
 })
-export class Item {
-
+export class ItemComponent {
+  item =input.required<Item>();
 }

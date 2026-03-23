@@ -1,4 +1,4 @@
-export interface Item {
+export type Item = {
   id: number;
   icon: string;
   name: string;
