@@ -1,8 +1,12 @@
 :host{
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: 1fr;
   justify-content: center;
+  height: 100%;
+  padding: 2rem;
   .add-button{
-    width: 90%;
+    grid-row: 2/3;
+    width: 100%;
   }
-
 }
