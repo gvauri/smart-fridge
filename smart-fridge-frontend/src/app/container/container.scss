@@ -2,11 +2,10 @@
   display: grid;
   grid-template-rows: 1fr auto;
   grid-template-columns: 1fr;
-  justify-content: center;
-  height: 100%;
+  gap: 2rem;
   padding: 2rem;
+  height: calc(100vh - 10rem);
   .add-button{
-    grid-row: 2/3;
     width: 100%;
   }
 }
