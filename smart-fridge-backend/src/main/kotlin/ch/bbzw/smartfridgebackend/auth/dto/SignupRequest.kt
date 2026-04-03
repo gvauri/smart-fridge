@@ -6,10 +6,10 @@ import jakarta.validation.constraints.Size
 
 data class SignupRequest (
     @field:NotBlank
-    private val username: String,
+    val name: String,
     @field:Email
-    private val email: String,
-    @field: NotBlank
+    val email: String,
+    @field:NotBlank
     @field:Size(min = 8)
-    private val password: String
+    val password: String
 )
