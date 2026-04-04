@@ -10,8 +10,7 @@ class UserMapper {
     fun map(signupRequest: SignupRequest): User {
         return User(
             name = signupRequest.name,
-            email = signupRequest.email,
-            password = ""
+            email = signupRequest.email
         )
     }
 

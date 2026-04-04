@@ -6,5 +6,5 @@ import ch.bbzw.smartfridgebackend.user.dto.UserResponse
 interface UserService {
     fun createUser(signupRequest: SignupRequest): UserResponse
 
-    fun getUserById(id: String): UserResponse
+    fun getUserById(id: String?): UserResponse
 }

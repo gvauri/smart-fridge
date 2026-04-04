@@ -13,7 +13,7 @@ class AuthServiceImpl(
     private val passwordEncoder: PasswordEncoder
 ) : AuthService {
 
-    override fun authenticate(email: String, rawPassword: String): String {
+    override fun authenticate(email: String, rawPassword: String): String? {
         val user = userRepository.findUserByEmail(email).orElseThrow { BadCredentialsException("Ungültige E-Mail") }
 
         if (!passwordEncoder.matches(rawPassword, user.password)) {

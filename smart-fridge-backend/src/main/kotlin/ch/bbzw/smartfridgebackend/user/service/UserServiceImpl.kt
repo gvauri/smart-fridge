@@ -30,8 +30,8 @@ class UserServiceImpl(
         return mapper.map(userRepository.save(user))
     }
 
-    override fun getUserById(id: String): UserResponse {
-        val user = userRepository.findById(id)
+    override fun getUserById(id: String?): UserResponse {
+        val user = userRepository.searchById(id)
             .orElseThrow { UserNotFoundException("User not found with id $id") }
 
         return mapper.map(user)
