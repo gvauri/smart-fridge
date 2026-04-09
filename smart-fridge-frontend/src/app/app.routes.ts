@@ -3,6 +3,7 @@ import {Container} from './container/container';
 import {Login} from './auth/login/login';
 import {Signup} from './auth/signup/signup';
 import {authGuard} from './shared/guards/auth-guard';
+import {PageNotFound} from './component/page-not-found/page-not-found';
 
 export const routes: Routes = [
   {
@@ -17,5 +18,9 @@ export const routes: Routes = [
   {
     path: 'signup',
     component: Signup
+  },
+  {
+    path: '**',
+    component: PageNotFound
   }
 ];
