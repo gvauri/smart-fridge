@@ -1,5 +1,5 @@
 import {Component, input} from '@angular/core';
-import {Item} from '../../../models/item.model';
+import {Item} from '../../../shared/models/item.model';
 import {DatePipe, NgOptimizedImage} from '@angular/common';
 
 @Component({
