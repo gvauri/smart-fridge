@@ -1,0 +1,37 @@
+name: Frontend CI
+
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+    branches:
+      - '**'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      CI: true
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: '25'
+          cache: 'npm'
+          cache-dependency-path: ./smart-fridge-frontend/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+        working-directory: ./smart-fridge-frontend
+
+      - name: Build Angular project
+        run: npm run build -- --configuration production
+        working-directory: ./smart-fridge-frontend
+
+      # TODO: wenn gui fixture tests dinne sind hie au usfüehre
