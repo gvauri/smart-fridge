@@ -1,0 +1,15 @@
+services:
+  mongodb-dev:
+    image: mongo:latest
+    container_name: mongodb-dev
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_DATABASE: smartfridge
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER:-devuser}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD:-devpassword}
+    volumes:
+      - mongodb_dev_data:/data/db
+
+volumes:
+  mongodb_dev_data:
