@@ -1,2 +1,11 @@
-<h1>Smart-Fridge</h1>
-<img ngSrc="logo.png" alt="Logo von Smart-Fridge" class="img" width="500" height="500" priority>
+<mat-toolbar>
+  <h1>Smart-Fridge</h1>
+  <img ngSrc="logo.png" alt="Logo von Smart-Fridge" class="img" width="500" height="500" priority>
+
+  @if (!isLoggedIn()) {
+    <button mat-button routerLink="/login">Login</button>
+    <button mat-button routerLink="/signup">Signup</button>
+  } @else {
+    <button mat-button routerLink="/login" (click)="logout()">Logout</button>
+  }
+</mat-toolbar>
