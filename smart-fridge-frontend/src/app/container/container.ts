@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {MatFabButton} from '@angular/material/button';
 import {ItemsComponent} from '../component/items/items.component';
+import {MatDialog} from '@angular/material/dialog';
+import {AddItem} from '../component/add-item/add-item';
 
 @Component({
   selector: 'app-container',
@@ -12,5 +14,9 @@ import {ItemsComponent} from '../component/items/items.component';
   styleUrl: './container.scss',
 })
 export class Container {
+  private readonly dialog = inject(MatDialog);
 
+  protected openAddDialog() {
+    this.dialog.open(AddItem)
+  }
 }
