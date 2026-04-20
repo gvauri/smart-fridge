@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {ItemComponent} from './item/item';
-import {ItemLoaderService} from '../../shared/services/item-loader.service';
 import {toSignal} from '@angular/core/rxjs-interop';
+import {ItemService} from '../../shared/services/item.service';
 
 @Component({
   selector: 'app-items',
@@ -12,8 +12,8 @@ import {toSignal} from '@angular/core/rxjs-interop';
   styleUrl: './items.component.scss',
 })
 export class ItemsComponent {
-  private readonly itemLoader = inject(ItemLoaderService);
+  private readonly itemService = inject(ItemService);
   protected readonly items = toSignal(
-    this.itemLoader.load()
+    this.itemService.getItems()
   );
 }

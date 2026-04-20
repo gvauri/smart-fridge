@@ -1,6 +1,14 @@
-<form (ngSubmit)="login()">
+<form [formGroup]="loginForm" (ngSubmit)="login()">
 
-  <!-- TODO: implement form -->
+  <mat-form-field appearance="outline">
+    <mat-label>E-Mail</mat-label>
+    <input matInput type="email" formControlName="email" autocomplete="email"/>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <mat-label>Passwort</mat-label>
+    <input matInput type="password" formControlName="password" autocomplete="current-password"/>
+  </mat-form-field>
 
   @if (isLoading()) {
     <div class="spinner">
@@ -11,4 +19,10 @@
   @if (hasErrorOccurred()) {
     <app-message-box [type]="MessageType.ERROR" [message]="errorMessage()"/>
   }
+
+  <button mat-flat-button type="submit" color="primary" [disabled]="isLoading()">
+    Anmelden
+  </button>
+
 </form>
+<a routerLink="signup">Registrierung</a>
