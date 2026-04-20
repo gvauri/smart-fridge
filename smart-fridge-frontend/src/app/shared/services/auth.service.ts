@@ -6,6 +6,7 @@ import {LoginDTO} from '../models/auth/login.dto';
 import {SignupDTO} from '../models/auth/signup.dto';
 import {AuthUser} from '../models/auth/auth-user.model';
 import {JwtToken} from '../models/auth/jwt-token.type';
+import {AuthResponse} from '../models/auth/auth-response';
 
 @Injectable({
   providedIn: 'root',
@@ -17,14 +18,14 @@ export class AuthService {
   isLoggedIn = computed(() => this._currentUser() !== null);
   userId = computed<string | null>(() => this._currentUser()?.id ?? null);
 
-  login(dto: LoginDTO): Observable<string> {
-    return this.http.post<string>(`${this.baseurl}/login`, dto)
-      .pipe(tap((response: string) => this.handleAuthSuccess(response)));
+  login(dto: LoginDTO): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.baseurl}/login`, dto)
+      .pipe(tap((response: AuthResponse) => this.handleAuthSuccess(response.token)));
   }
 
-  signup(dto: SignupDTO): Observable<string> {
-    return this.http.post<string>(`${this.baseurl}/signup`, dto)
-      .pipe(tap((response: string) => this.handleAuthSuccess(response)));
+  signup(dto: SignupDTO): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${this.baseurl}/signup`, dto)
+      .pipe(tap((response: AuthResponse) => this.handleAuthSuccess(response.token)));
   }
 
   logout(): void {
@@ -49,6 +50,7 @@ export class AuthService {
 
   private handleAuthSuccess(token: string): void {
     const decoded: JwtToken = jwtDecode<JwtToken>(token);
+    console.log(decoded);
 
     if (decoded.exp * 1000 < Date.now()) {
       throw new Error('Token expired');
