@@ -50,7 +50,6 @@ export class AuthService {
 
   private handleAuthSuccess(token: string): void {
     const decoded: JwtToken = jwtDecode<JwtToken>(token);
-    console.log(decoded);
 
     if (decoded.exp * 1000 < Date.now()) {
       throw new Error('Token expired');

@@ -17,6 +17,6 @@ export class Container {
   private readonly dialog = inject(MatDialog);
 
   protected openAddDialog() {
-    this.dialog.open(AddItem)
+    this.dialog.open(AddItem);
   }
 }
