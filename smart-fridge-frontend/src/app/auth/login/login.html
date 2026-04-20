@@ -1,0 +1,14 @@
+<form (ngSubmit)="login()">
+
+  <!-- TODO: implement form -->
+
+  @if (isLoading()) {
+    <div class="spinner">
+      <mat-spinner/>
+    </div>
+  }
+
+  @if (hasErrorOccurred()) {
+    <app-message-box [type]="MessageType.ERROR" [message]="errorMessage()"/>
+  }
+</form>

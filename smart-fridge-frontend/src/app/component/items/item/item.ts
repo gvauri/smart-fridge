@@ -1,12 +1,12 @@
 import {Component, input} from '@angular/core';
-import {Item} from '../../../models/item.model';
-import {NgOptimizedImage} from '@angular/common';
-import {format} from 'date-fns';
+import {Item} from '../../../shared/models/item/item.model';
+import {DatePipe, NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-item',
   imports: [
-    NgOptimizedImage
+    NgOptimizedImage,
+    DatePipe
   ],
   templateUrl: './item.html',
   styleUrl: './item.scss',
@@ -14,7 +14,4 @@ import {format} from 'date-fns';
 export class ItemComponent {
   readonly item = input.required<Item>();
 
-  protected formatDate(date: Date) {
-    return format(date, 'dd.MM.yyyy');
-  }
 }

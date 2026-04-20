@@ -1,8 +1,8 @@
 <img [ngSrc]="item().icon" [alt]="item().icon" class="img" width="500" height="500" priority>
 <div class="description-container">
-  <h2>{{item().name}}</h2>
-  <p>Ablaufdatum: {{formatDate(item().expiration_date)}}</p>
-  <p>Kaufsdatum: {{formatDate(item().buying_date)}}</p>
-  <p>Anzahl: {{item().amount}}</p>
-  <p>{{item().description}}</p>
+  <h2>{{ item().name }}</h2>
+  <p>Ablaufdatum: {{ item().expiration_date | date:'dd.MM.yyyy' }}</p>
+  <p>Kaufsdatum: {{ item().buying_date | date:'dd.MM.yyyy' }}</p>
+  <p>Anzahl: {{ item().amount }}</p>
+  <p>{{ item().description }}</p>
 </div>
