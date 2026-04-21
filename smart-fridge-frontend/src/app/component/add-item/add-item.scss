@@ -1,0 +1,13 @@
+:host{
+  .form-container{
+    padding-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem 2rem;
+    width: 100%;
+
+    mat-form-field:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+}

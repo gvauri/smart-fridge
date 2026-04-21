@@ -1,15 +1,10 @@
 <h2 mat-dialog-title>Neues Item</h2>
 
 <mat-dialog-content>
-  <form [formGroup]="formAdd">
+  <form [formGroup]="formAdd" class="form-container">
     <mat-form-field appearance="outline">
       <mat-label>Name</mat-label>
       <input matInput formControlName="name"/>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Beschreibung</mat-label>
-      <textarea matInput formControlName="description" rows="3"></textarea>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -19,11 +14,6 @@
           <mat-option [value]="icon">{{ icon }}</mat-option>
         }
       </mat-select>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Menge</mat-label>
-      <input matInput type="number" formControlName="amount"/>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -40,6 +30,16 @@
       <mat-datepicker-toggle matSuffix [for]="expirationPicker"/>
     </mat-form-field>
 
+
+    <mat-form-field appearance="outline">
+      <mat-label>Menge</mat-label>
+      <input matInput type="number" formControlName="amount"/>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Beschreibung</mat-label>
+      <textarea matInput formControlName="description" rows="3"></textarea>
+    </mat-form-field>
   </form>
 
   @if (hasErrorOccurred()) {

@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Item} from '../models/item/item.model';
 import {CreateItemDTO} from '../models/item/create-item.dto';
 import {UpdateItemDTO} from '../models/item/update-item.dto';
+import {format} from 'date-fns';
 
 @Injectable({
   providedIn: 'root',
@@ -17,7 +18,12 @@ export class ItemService {
   }
 
   createItem(item: CreateItemDTO): Observable<Item> {
-    return this.http.post<Item>(`${this.baseurl}`, item);
+    const body = {
+      ...item,
+      expirationDate: format(item.expirationDate, 'yyyy-MM-dd'),
+      buyingDate: format(item.buyingDate, 'yyyy-MM-dd'),
+    }
+    return this.http.post<Item>(`${this.baseurl}`, body);
   }
 
   updateItem(itemId: string, item: UpdateItemDTO): Observable<Item> {
