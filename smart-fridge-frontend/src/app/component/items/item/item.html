@@ -7,6 +7,6 @@
   <p>{{ item().description }}</p>
 </div>
 <div class="action-panel">
-  <button mat-icon-button><mat-icon svgIcon="edit"/></button>
-  <button mat-icon-button color="warn"><mat-icon svgIcon="delete"/></button>
+  <button mat-icon-button (click)="openUpdateDialog()"><mat-icon svgIcon="edit"/></button>
+  <button mat-icon-button color="warn" (click)="delete()"><mat-icon svgIcon="delete"/></button>
 </div>

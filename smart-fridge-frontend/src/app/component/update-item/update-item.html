@@ -1,7 +1,7 @@
-<h2 mat-dialog-title>Neues Item</h2>
+<h2 mat-dialog-title>Item bearbeiten</h2>
 
 <mat-dialog-content>
-  <form [formGroup]="formAdd" class="form-container">
+  <form [formGroup]="formUpdate" class="form-container">
     <mat-form-field appearance="outline">
       <mat-label>Name</mat-label>
       <input matInput formControlName="name"/>
@@ -14,13 +14,6 @@
           <mat-option [value]="icon">{{ icon }}</mat-option>
         }
       </mat-select>
-    </mat-form-field>
-
-    <mat-form-field appearance="outline">
-      <mat-label>Kaufdatum</mat-label>
-      <input matInput [matDatepicker]="buyingPicker" formControlName="buyingDate"/>
-      <mat-datepicker #buyingPicker/>
-      <mat-datepicker-toggle matSuffix [for]="buyingPicker"/>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -48,5 +41,5 @@
 
 <mat-dialog-actions align="end">
   <button mat-button (click)="cancel()">Abbrechen</button>
-  <button mat-flat-button color="primary" (click)="submit()" [disabled]="formAdd.invalid">Erstellen</button>
+  <button mat-flat-button color="primary" (click)="submit()" [disabled]="formUpdate.invalid">Speichern</button>
 </mat-dialog-actions>
