@@ -1,6 +1,8 @@
 <mat-toolbar>
-  <h1>Smart-Fridge</h1>
-  <img ngSrc="logo.png" alt="Logo von Smart-Fridge" class="img" width="500" height="500" priority>
+  <div class="title-container">
+    <img ngSrc="logo.png" alt="Logo von Smart-Fridge" class="img" width="500" height="500" priority>
+    <h1>Smart-Fridge</h1>
+  </div>
 
   @if (!isLoggedIn()) {
     <button mat-button routerLink="/login">Login</button>

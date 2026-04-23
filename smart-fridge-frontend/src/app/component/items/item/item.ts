@@ -10,7 +10,6 @@ import {UpdateItem} from '../../update-item/update-item';
 @Component({
   selector: 'app-item',
   imports: [
-    NgOptimizedImage,
     DatePipe,
     MatIcon,
     MatIconButton
