@@ -13,7 +13,5 @@ import {ItemService} from '../../shared/services/item.service';
 })
 export class ItemsComponent {
   private readonly itemService = inject(ItemService);
-  protected readonly items = toSignal(
-    this.itemService.getItems()
-  );
+  protected readonly items = toSignal(this.itemService.items$);
 }
