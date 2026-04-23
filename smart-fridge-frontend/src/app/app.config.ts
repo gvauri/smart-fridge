@@ -5,6 +5,7 @@ import {provideHttpClient, withInterceptors} from '@angular/common/http';
 import {errorInterceptor} from './shared/interceptors/error-interceptor';
 import {authInterceptor} from './shared/interceptors/auth-interceptor';
 import {provideNativeDateAdapter} from '@angular/material/core';
+import {provideIcons} from './shared/providers/icon.provider'
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -17,6 +18,7 @@ export const appConfig: ApplicationConfig = {
         authInterceptor
       ])
     ),
-    provideNativeDateAdapter()
+    provideNativeDateAdapter(),
+    provideIcons()
   ]
 };

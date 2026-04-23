@@ -25,6 +25,15 @@
     max-height: 20vh;
   }
 
+  .action-panel {
+    margin-left: auto;
+    margin-bottom: auto;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+  }
+
   @media (min-width: 600px) {
     flex-direction: row;
     gap: 5rem;
