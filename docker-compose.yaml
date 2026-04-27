@@ -23,7 +23,8 @@ services:
       JWT_SECRET: ${JWT_SECRET:-defaultsecret}
       SMTP_USERNAME: ${SMTP_USERNAME}
       SMTP_PASSWORD: ${SMTP_PASSWORD}
-      SPRING_PROFILES_ACTIVE: dev
+      MONGO_PROD_URI: ${MONGO_PROD_URI:-mongodb://${MONGO_USER:-devuser}:${MONGO_PASSWORD:-devpassword}@mongodb:27017/smartfridge?authSource=admin}
+      SPRING_PROFILES_ACTIVE: prod
     depends_on:
       - mongodb
 
