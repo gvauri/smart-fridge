@@ -23,6 +23,7 @@ services:
       JWT_SECRET: ${JWT_SECRET:-defaultsecret}
       SMTP_USERNAME: ${SMTP_USERNAME}
       SMTP_PASSWORD: ${SMTP_PASSWORD}
+      SPRING_PROFILES_ACTIVE: dev
     depends_on:
       - mongodb
 
@@ -31,7 +32,7 @@ services:
       context: ./smart-fridge-frontend
     container_name: smart-fridge-frontend
     ports:
-      - "80:80"
+      - "8081:80"
     depends_on:
       - backend
 
