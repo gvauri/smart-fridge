@@ -42,7 +42,7 @@ export class AddItem {
   private readonly dialogRef = inject(MatDialogRef<AddItem>);
   private readonly fb = inject(FormBuilder);
   protected readonly MessageType = MessageType;
-  protected readonly iconTypes = Object.values(IconType);
+  protected readonly iconTypes = Object.values(IconType).filter((v): v is IconType => typeof v === 'string');
   protected readonly formAdd = this.fb.group({
     name: ['', Validators.required],
     description: ['', Validators.required],

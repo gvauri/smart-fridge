@@ -43,7 +43,7 @@ export class UpdateItem {
   private readonly item = inject<Item>(MAT_DIALOG_DATA);
   private readonly fb = inject(FormBuilder);
   protected readonly MessageType = MessageType;
-  protected readonly iconTypes = Object.values(IconType);
+  protected readonly iconTypes = Object.values(IconType).filter((v): v is IconType => typeof v === 'string');
   protected readonly formUpdate = this.fb.group({
     name: [this.item.name, Validators.required],
     description: [this.item.description, Validators.required],
