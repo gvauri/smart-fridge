@@ -4,13 +4,10 @@ export enum IconType {
   MEAT,
   FISH,
   DAIRY,
-  CHEESE,
   DESSERT,
   DRINK,
   SNACK,
   BREAD,
-  FROZEN,
-  READY_MEAL,
   SAUCE,
   SPICE,
   OTHER
