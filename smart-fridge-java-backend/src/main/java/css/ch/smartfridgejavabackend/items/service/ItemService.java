@@ -4,11 +4,14 @@ import css.ch.smartfridgejavabackend.items.dto.CreateItemRequest;
 import css.ch.smartfridgejavabackend.items.dto.ItemResponse;
 import css.ch.smartfridgejavabackend.items.dto.UpdateItemRequest;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface ItemService {
 
     List<ItemResponse> getItems(String userId);
+
+    List<ItemResponse> findItemsExpiringTomorrow();
 
     ItemResponse createItem(String userId, CreateItemRequest request);
 

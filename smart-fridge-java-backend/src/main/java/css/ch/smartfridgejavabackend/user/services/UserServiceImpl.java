@@ -30,4 +30,10 @@ public class UserServiceImpl implements UserService {
         return mapper.map(repo.save(user));
     }
 
+    @Override
+    public UserResponseDTO getUserById(String userId) {
+        return repo.findById(userId)
+                .map(mapper::map)
+                .orElseThrow(() -> new RuntimeException("User mit ID " + userId + " nicht gefunden"));
+    }
 }

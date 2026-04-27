@@ -11,6 +11,7 @@ import css.ch.smartfridgejavabackend.items.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -22,6 +23,15 @@ public class ItemServiceImpl implements ItemService {
     @Override
     public List<ItemResponse> getItems(String userId) {
         return repository.findByUserId(userId).stream()
+                .map(mapper::map)
+                .toList();
+    }
+
+    @Override
+    public List<ItemResponse> findItemsExpiringTomorrow() {
+        LocalDate tomorrow = LocalDate.now().plusDays(1);
+
+        return repository.findByExpirationDate(tomorrow).stream()
                 .map(mapper::map)
                 .toList();
     }

@@ -23,6 +23,7 @@ public class ItemMapper {
     public ItemResponse map(Item item) {
         return ItemResponse.builder()
                 .id(item.getId())
+                .userId(item.getUserId())
                 .icon(item.getIcon())
                 .name(item.getName())
                 .description(item.getDescription())

@@ -5,6 +5,7 @@ import css.ch.smartfridgejavabackend.auth.dto.LoginRequest;
 import css.ch.smartfridgejavabackend.auth.dto.SignupRequest;
 import css.ch.smartfridgejavabackend.auth.service.AuthService;
 import css.ch.smartfridgejavabackend.auth.service.JwtService;
+import css.ch.smartfridgejavabackend.notification.services.MailService;
 import css.ch.smartfridgejavabackend.user.dto.UserResponseDTO;
 import css.ch.smartfridgejavabackend.user.services.UserService;
 import jakarta.validation.Valid;
@@ -23,11 +24,13 @@ public class AuthController {
     private final AuthService authService;
     private final UserService userService;
     private final JwtService jwtService;
+    private final MailService mailService;
 
     @PostMapping("/signup")
     public ResponseEntity<AuthResponse> signup(@Valid @RequestBody SignupRequest signupRequest) {
         UserResponseDTO userDto = userService.createUser(signupRequest);
         String token = jwtService.generateToken(userDto.id());
+        mailService.sendWelcomeMail(userDto.email(), userDto.name());
 
         return ResponseEntity.status(HttpStatus.CREATED).body(new AuthResponse(token));
     }

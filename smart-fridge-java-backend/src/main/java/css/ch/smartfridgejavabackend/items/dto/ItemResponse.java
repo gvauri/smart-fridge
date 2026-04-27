@@ -8,6 +8,7 @@ import java.time.LocalDate;
 @Builder
 public record ItemResponse(
    String id,
+   String userId,
    IconType icon,
    String name,
    String description,
