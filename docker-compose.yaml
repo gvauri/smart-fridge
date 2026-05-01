@@ -15,8 +15,8 @@ services:
     build:
       context: ./smart-fridge-java-backend
     container_name: smart-fridge-backend
-    ports:
-      - "8080:8080"
+    expose:
+      - "8080"
     environment:
       MONGO_USER: ${MONGO_USER:-devuser}
       MONGO_PASSWORD: ${MONGO_PASSWORD:-devpassword}
@@ -32,9 +32,24 @@ services:
     build:
       context: ./smart-fridge-frontend
     container_name: smart-fridge-frontend
-    ports:
-      - "8081:80"
+    expose:
+      - "443"
+    volumes:
+      - ./certs:/etc/nginx/ssl:ro
     depends_on:
+      - backend
+
+  nginx:
+    image: nginx:alpine
+    container_name: smart-fridge-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./certs:/etc/nginx/ssl
+    depends_on:
+      - frontend
       - backend
 
 volumes:
